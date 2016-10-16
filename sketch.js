@@ -19,7 +19,7 @@ function preload(){
 function setup() {
   pixelDensity(1);
   createCanvas(windowWidth, windowHeight);
-  frog = new imageLoader(img, width/2, (height/2) + 220, 130, 0);
+  frog = new imageLoader(img, width/2, height - 105, 130, 0);
   for(var i = 0; i < fly.length; i++){
     flyArray.push(new imageLoader(fly[i], i*20 + random(width), 80, 90, random(-i*80, i*80)));
   }
@@ -29,6 +29,10 @@ function setup() {
   mySound2.play();
   button2 = createButton("Play Sound");
   button = createButton("Stop Sound");
+  button.style("width","100px");
+  button2.style("width","100px");
+   button.style("height","50px");
+  button2.style("height","50px");
 }
 
 
@@ -44,11 +48,10 @@ function draw() {
   if(flyArray[i].locate() === true){
     stroke(255, 0, 0, 150);
     strokeWeight(10);
-    line(width/2 - 2, (height/2) + 202, mouseX, mouseY);
+    line(width/2 - 2, height - 122, mouseX, mouseY);
     count = ceil(count + 0.01);
     flyArray[i].drop();
   }
-  
   }
   button2.position(20, 20);
   button.position(20, 20);
@@ -62,10 +65,16 @@ function draw() {
   stroke(255, 0, 0);
   strokeWeight(1);
   fill(255, 0, 0, 100);
-  ellipse(mouseX, mouseY, 15, 15);
-  ellipse(width/2 - 2, (height/2) + 202, 15, 15);
-  textSize(20);
-  text("Score", width - 60 , 40);
-  text(count, width - 60 , 70);
+  //ellipse(mouseX, mouseY, 15, 15);
+  ellipse(width/2 - 2, height - 122, 15, 15);
+  textSize(30);
+  text("Score", width - 120 , 40);
+  text(count, width - 120 , 80);
+  fill(23, 214, 241, 150);
+  stroke(23, 214, 241, 150);
+  strokeWeight(120);
+  line(0 , height, width, height);
+  
+  if(count >= 8){mySound.stop();}
   
 }

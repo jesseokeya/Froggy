@@ -5,6 +5,7 @@ function imageLoader(img, x, y, size, space){
  this.img = img;
  this.size = size;
  this.r = 30;
+ this.mySound2 = mySound2;
  this.display = function(){
    imageMode(CENTER);
    this.img.resize(this.size, this.size);
@@ -12,14 +13,14 @@ function imageLoader(img, x, y, size, space){
  }
 
  this.move = function(){
-   this.x = this.x + random(-10, 10);
-   this.y = this.y + random(-5, 5);
+   this.x = this.x + random(-15, 15);
+   this.y = this.y + random(-15, 15);
    if(this.x >= width || this.x <= 0){this.x = width/2;}
    if(this.y >= height || this.y <= 102){this.y = (height/2) - 120;}
  }
  
  this.check = function(){
-   stroke(255, 0, 0);
+   stroke(255, 0, 0, 0);
    strokeWeight(1);
    fill(255, 255, 255, 0);
    ellipseMode(CENTER);
@@ -32,7 +33,9 @@ function imageLoader(img, x, y, size, space){
  }
  
  this.drop = function(){
-   
+   this.x = width/2 - 2;
+   this.y = (height/2) + 202;
+   this.size = 1;
  }
 }
 
