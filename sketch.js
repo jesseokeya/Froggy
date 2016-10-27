@@ -6,6 +6,7 @@ var displayFly;
 var mySound, mySound2;
 var button, button2;
 var count = 0;
+var canvas;
 
 function preload(){
   mySound  = loadSound('assets/fly.mp4');
@@ -18,7 +19,7 @@ function preload(){
 
 function setup() {
   pixelDensity(1);
-  createCanvas(windowWidth, windowHeight);
+  canvas = createCanvas(windowWidth, windowHeight);
   frog = new imageLoader(img, width/2, height - 105, 130, 0);
   for(var i = 0; i < fly.length; i++){
     flyArray.push(new imageLoader(fly[i], i*20 + random(width), 80, 90, random(-i*80, i*80)));
@@ -35,7 +36,9 @@ function setup() {
   button2.style("height","50px");
 }
 
-
+function windoeResized(){
+  canvas.resize(windowWidth, windowHeight);
+}
 
 function draw() {
   bgColor();
