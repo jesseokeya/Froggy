@@ -1,39 +1,46 @@
-var flObjects = [ ]; var score; var level;
+//Variables and arrays of game
+var flObjects = [ ]; var level;
 var canvas; var img;
+var concrete  = [ ];
+var scoreCount = 0;
 
+//function preload to load assets into the game
 function preload(){
-  img = loadImage("assets/menu.png");
+  img = loadImage("assets/frog.png");
 }
 
-function setup() {
-  canvas = createCanvas(windowWidth, windowHeight);
-  for(var i = 0; i < 200; i++){
-    flObjects.push(new floatingObjects(random(width),random(height)));
-  }
-  pixelDensity(1);
-}
-
+//resize widow to fit game into any screen
 function windowResized(){
   canvas.resize(windowWidth, windowHeight);
 }
 
-function draw() {
-  background(145, 173, 150);
-  for(var i = 0; i < flObjects.length; i++){
-    flObjects[i].display();
-    flObjects[i].move();
+//function setup to put everything in the game into place
+function setup() {
+  //create canvas
+  canvas = createCanvas(windowWidth, windowHeight);
+  pixelDensity(1);
+  //push floating objects(fireflies) into the game
+  for(var i = 0; i < 300; i++){
+    flObjects.push(new floatingObjects(random(width),random(height)));
   }
-  
-  imageMode(CENTER);
-  image(img, width/2, height - 100);
-  fill(46, 85, 114);
-  textSize(23);
-  textStyle(BOLD);
-  text("Score: ", 20, 50);
+  //push frog object into index 0 of concrete
+  concrete[0] = new frog(img, 250, width/2, height - 130);
+}
 
-  level = 1;
-  text("Level " + level, width-100, 50);
+//Game logic is in draw
+function draw() {
+  //set background
+  background(145, 173, 150);
 
-  score = 0;
-  text(score, 100, 50);
+  //push score object into index 1 of concrete
+  concrete[1] = new score("Score:", 35, 0, 10, 55);
+  //push level object into index 1 of concrete
+  concrete[2] = new score("Level:", 35, 1, width - 180, 55);
+
+  //display and move fireflies
+  for(var i = 0; i < flObjects.length; i++){ flObjects[i].display(); flObjects[i].move();}
+
+  //display objects
+  for(var i = 0; i < concrete.length; i++){concrete[i].display();}
+
 }
