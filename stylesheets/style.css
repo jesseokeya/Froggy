@@ -63,15 +63,16 @@ body:before {
 
 .color-change {
   border-radius: 5px;
-  font-size: 20px;
-  padding: 12px 64px;
+  font-size: 40px;
+  font-weight: bold;
+  padding: 22px 75px;
   cursor: pointer;
   color: #fff;
   background-color: #2E5572;
   font-size: 1.5rem;
   font-family: 'Roboto';
   font-weight: 100;
-  margin-top: 45px;
+  margin-top: 50px;
   border: 1px solid #fff;
   box-shadow: 2px 2px 5px #AFE9FF;
   transition-duration: 0.5s;
