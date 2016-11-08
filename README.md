@@ -1,2 +1,0 @@
-# Froggy
-Basic javascript game
