@@ -24,7 +24,7 @@ function setup() {
     flObjects.push(new floatingObjects(random(width),random(height)));
   }
   //push frog object into index 0 of concrete
-  concrete[0] = new frog(img, 250, width/2, height - 160);
+  concrete[0] = new frog(img, 300, width/2, height - 180);
 }
 
 //Game logic is in draw
@@ -33,9 +33,9 @@ function draw() {
   background(145, 173, 150);
 
   //push score object into index 1 of concrete
-  concrete[1] = new score("Score:", 35, 0, 10, 55);
+  concrete[1] = new score("Score:", 45, 0, 10, 65);
   //push level object into index 1 of concrete
-  concrete[2] = new score("Level:", 35, 1, width - 180, 55);
+  concrete[2] = new score("Level:", 45, 1, width - 180, 65);
 
   //display and move fireflies
   for(var i = 0; i < flObjects.length; i++){ flObjects[i].display(); flObjects[i].move();}

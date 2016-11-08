@@ -3,7 +3,7 @@ function score(show, textsize, value, x, y){
   this.y = y;
   this.show = show;
   this.value = value;
-  this.space = 120;
+  this.space = 150;
   this.textsize = textsize;
   this.display = function(){
     fill(46, 85, 114);
