@@ -64,7 +64,7 @@ body:before {
 .color-change {
   border-radius: 5px;
   font-size: 20px;
-  padding: 12px 64px;
+  padding: 20px 100px;
   cursor: pointer;
   color: #fff;
   background-color: #2E5572;
