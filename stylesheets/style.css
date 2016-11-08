@@ -80,7 +80,7 @@ body:before {
 }
 
 .color-change:hover {
-  color: #006398;
+  color: black;
   border: 1px solid #006398;
   box-shadow: 2px 2px 20px #AFE9FF;
 }
