@@ -60,11 +60,10 @@ body:before {
   }
 }
 
-
 .color-change {
   border-radius: 5px;
   font-size: 20px;
-  padding: 20px 100px;
+  padding: 20px 150px;
   cursor: pointer;
   color: #fff;
   background-color: #2E5572;
