@@ -33,9 +33,9 @@ function draw() {
   background(145, 173, 150);
 
   //push score object into index 1 of concrete
-  concrete[1] = new score("Score:", 45, 0, 10, 65);
+  concrete[1] = new score("Score:", 45, 0, 14, 80);
   //push level object into index 1 of concrete
-  concrete[2] = new score("Level:", 45, 1, width - 180, 65);
+  concrete[2] = new score("Level:", 45, 1, width - 214, 80);
 
   //display and move fireflies
   for(var i = 0; i < flObjects.length; i++){ flObjects[i].display(); flObjects[i].move();}
