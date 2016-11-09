@@ -1,7 +1,7 @@
 function fly(img, size, x, y){
   this.x = x;
   this.y = y;
-  this.speed = 5;
+  this.speed = 50;
   this.size = size;
   this.img = img;
   this.count = 0;
@@ -33,9 +33,9 @@ function fly(img, size, x, y){
   this.buzz = function(){
     this.x = this.x + random(-this.speed, this.speed);
     this.y = this.y + random(-this.speed, this.speed);
-    if(this.x >= width){}
-    if(this.y >= height){}
-    if(this.x <= 40){}
-    if(this.y <= 110){}
+    if(this.x >= width - 40){this.x = this.x - 40;}
+    if(this.y >= height - 250){this.y = this.y - 250;}
+    if(this.x <= 40){this.x = this.x + 40;}
+    if(this.y <= 110){this.y = this.y + 110;}
   }
 }
