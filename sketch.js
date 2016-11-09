@@ -1,12 +1,13 @@
 //Variables and arrays of game
 var flObjects = [ ]; var level;
-var canvas; var img;
-var concrete  = [ ];
-var scoreCount = 0;
+var canvas; var img; var concrete  = [ ];
+var flies = [ ]; var flyObjects = [ ];
+var scoreCount = 0; var flyNumber = 12;
 
 //function preload to load assets into the game
 function preload(){
   img = loadImage("assets/frog.png");
+  for(var i = 0; i < flyNumber; i++){flies[i] = loadImage("assets/fly.png");}
 }
 
 //resize widow to fit game into any screen
@@ -19,12 +20,17 @@ function setup() {
   //create canvas
   canvas = createCanvas(windowWidth, windowHeight);
   pixelDensity(1);
+  //push in random fly objects into game
+  for(var i = 0; i < flies.length; i++){
+    flyObjects.push(new fly(flies[i], 80, random(40, width - 40), random(110, height - 250)));
+  }
   //push floating objects(fireflies) into the game
   for(var i = 0; i < 300; i++){
     flObjects.push(new floatingObjects(random(width),random(height)));
   }
   //push frog object into index 0 of concrete
   concrete[0] = new frog(img, 200, width/2, height - 120);
+
 }
 
 //Game logic is in draw
@@ -39,8 +45,12 @@ function draw() {
 
   //display and move fireflies
   for(var i = 0; i < flObjects.length; i++){ flObjects[i].display(); flObjects[i].move();}
+  text(mouseY,mouseX, mouseY);
 
   //display objects
   for(var i = 0; i < concrete.length; i++){concrete[i].display();}
+  
+  //display all fly objects in array
+  for(var i = 0; i < flies.length; i++){flyObjects[i].display(); flyObjects[i].buzz();}
 
 }
