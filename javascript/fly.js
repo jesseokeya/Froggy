@@ -33,5 +33,9 @@ function fly(img, size, x, y){
   this.buzz = function(){
     this.x = this.x + random(-this.speed, this.speed);
     this.y = this.y + random(-this.speed, this.speed);
+    if(this.x >= width){}
+    if(this.y >= height){}
+    if(this.x <= 40){}
+    if(this.y <= 110){}
   }
 }

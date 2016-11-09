@@ -22,7 +22,7 @@ function setup() {
   pixelDensity(1);
   //push in random fly objects into game
   for(var i = 0; i < flies.length; i++){
-    flyObjects.push(new fly(flies[i], 100, random(40, width - 40), random(110, height - 250)));
+    flyObjects.push(new fly(flies[i], 50, random(40, width - 40), random(110, height - 250)));
   }
   //push floating objects(fireflies) into the game
   for(var i = 0; i < 600; i++){
