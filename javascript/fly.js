@@ -9,10 +9,16 @@ function fly(img, size, x, y){
     imageMode(CENTER);
     this.img.resize(this.size, this.size);
     image(this.img, this.x, this.y);
-    stroke(255, 0, 0);
-    noFill();
-    ellipse(this.x, this.y, this.size + 15, this.size + 15);
   }
+
+  this.kill = function(){
+   var distance = dist(this.x, this.y, mouseX, mouseY);
+   stroke(255, 0, 0, 30);
+   noFill();
+   if(distance < this.size + 15){return true;}
+   ellipse(this.x, this.y, this.size + 15, this.size + 15);
+   return false;
+ }
 
   this.buzz = function(){
     this.x = this.x + random(-this.speed, this.speed);
