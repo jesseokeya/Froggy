@@ -1,7 +1,7 @@
 function fly(img, size, x, y){
   this.x = x;
   this.y = y;
-  this.speed = 50;
+  this.speed = 8;
   this.size = size;
   this.img = img;
   this.count = 0;
