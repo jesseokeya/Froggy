@@ -24,7 +24,7 @@ function setup() {
     flObjects.push(new floatingObjects(random(width),random(height)));
   }
   //push frog object into index 0 of concrete
-  concrete[0] = new frog(img, 150, width/2, height - 90);
+  concrete[0] = new frog(img, 200, width/2, height - 120);
 }
 
 //Game logic is in draw
