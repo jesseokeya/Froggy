@@ -37,9 +37,8 @@ function setup() {
 function draw() {
   //set background
   background(145, 173, 150);
-
   //push score object into index 1 of concrete
-  concrete[1] = new score("Score: ", 25, 0, 14, 60);
+  concrete[1] = new score("Score: ", 25, scoreCount, 14, 60);
   //push level object into index 1 of concrete
   concrete[2] = new score("Level", 25, 1, width - 124, 60);
 
@@ -50,6 +49,10 @@ function draw() {
   for(var i = 0; i < concrete.length; i++){concrete[i].display();}
 
   //display all fly objects in array
-  for(var i = 0; i < flies.length; i++){flyObjects[i].display(); flyObjects[i].buzz(); flyObjects[i].kill();}
+  for(var i = 0; i < flies.length; i++){
+    flyObjects[i].display(); flyObjects[i].buzz(); flyObjects[i].kill();
+    fill(0);
+    if(flyObjects[i].calcScore() === true){scoreCount = scoreCount + 1;}
+  }
 
 }
