@@ -2,7 +2,7 @@
 var flObjects = [ ]; var level;
 var canvas; var img; var concrete  = [ ];
 var flies = [ ]; var flyObjects = [ ];
-var scoreCount = 0; var flyNumber = 12;
+var scoreCount = 0; var flyNumber = 20;
 
 //function preload to load assets into the game
 function preload(){
@@ -20,6 +20,10 @@ function setup() {
   //create canvas
   canvas = createCanvas(windowWidth, windowHeight);
   pixelDensity(1);
+  //push in random fly objects into game
+  for(var i = 0; i < flies.length; i++){
+    flyObjects.push(new fly(flies[i], 80, random(40, width - 40), random(110, height - 250)));
+  }
   //push floating objects(fireflies) into the game
   for(var i = 0; i < 300; i++){
     flObjects.push(new floatingObjects(random(width),random(height)));
@@ -34,11 +38,6 @@ function draw() {
   //set background
   background(145, 173, 150);
 
-  //push in random fly objects into game
-  for(var i = 0; i < flies.length; i++){
-    flyObjects.push(new fly(flies[i], 80, random(40, width - 40), random(110, height - 250)));
-  }
-
   //push score object into index 1 of concrete
   concrete[1] = new score("Score: ", 25, 0, 14, 60);
   //push level object into index 1 of concrete
@@ -51,11 +50,6 @@ function draw() {
   for(var i = 0; i < concrete.length; i++){concrete[i].display();}
 
   //display all fly objects in array
-  for(var i = 0; i < flies.length; i++){
-    flyObjects[i].display(); flyObjects[i].buzz();
-    if(flyObjects[i].kill() == true){
-       splice(flyObjects[i]);
-    }
-  }
+  for(var i = 0; i < flies.length; i++){flyObjects[i].display(); flyObjects[i].buzz(); flyObjects[i].kill();}
 
 }

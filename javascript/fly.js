@@ -4,6 +4,7 @@ function fly(img, size, x, y){
   this.speed = 2;
   this.size = size;
   this.img = img;
+  this.col = color(145, 173, 150);
 
   this.display = function(){
     imageMode(CENTER);
@@ -13,11 +14,11 @@ function fly(img, size, x, y){
 
   this.kill = function(){
    var distance = dist(this.x, this.y, mouseX, mouseY);
-   stroke(255, 0, 0, 30);
+   noStroke();
    noFill();
-   if(distance < this.size + 15){return true;}
-   ellipse(this.x, this.y, this.size + 15, this.size + 15);
-   return false;
+   if(distance < this.size + 23){fill(this.col);}
+   
+   ellipse(this.x, this.y, this.size + 23, this.size + 23);
  }
 
   this.buzz = function(){
