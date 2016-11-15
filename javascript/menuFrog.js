@@ -3,7 +3,7 @@ var frog;
 var frogSize = 300;
 
 function setup() {
-  var myCanvas = createCanvas(windowWidth, 400);
+  var myCanvas = createCanvas(windowWidth, 625);
   myCanvas.parent('myContainer');
   for(var i = 0; i < 600; i++){
     flObjects.push(new floatingObjects(random(width),random(height)));
