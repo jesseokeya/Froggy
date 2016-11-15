@@ -1,6 +1,6 @@
 var flObjects = [ ];
 var frog;
-var frogSize = 300;
+var frogSize = 250;
 
 function setup() {
   var myCanvas = createCanvas(windowWidth, 625);
