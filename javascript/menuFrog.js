@@ -29,6 +29,6 @@ function draw() {
   for(var i = 0; i < flObjects.length; i++){flObjects[i].display(); flObjects[i].move();}
   imageMode(CENTER);
   frog.resize(frogSize, frogSize - 30);
-  image(frog, width/2, height/2);
+  image(frog, width/2, height - 130);
   for(var i = 0; i < flies.length; i++){flyObjects[i].display(); flyObjects[i].buzzMenu();}
 }

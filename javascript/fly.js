@@ -59,8 +59,8 @@ this.getId = function(){return this.track}
     this.x = this.x + random(-this.speed, this.speed);
     this.y = this.y + random(-this.speed, this.speed);
     if(this.x >= width - 4){this.x = this.x - 4;}
-    if(this.y >= height - 25){this.y = this.y - 25;}
+    if(this.y >= height - 200){this.y = this.y - 200;}
     if(this.x <= 4){this.x = this.x + 4;}
-    if(this.y <= 11){this.y = this.y + 11;}
+    if(this.y <= 10){this.y = this.y + 10;}
   }
 }
