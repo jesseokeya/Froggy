@@ -47,7 +47,6 @@ function draw() {
 
   //display objects
   for(var i = 0; i < concrete.length; i++){concrete[i].display();}
-
   //display all fly objects in array
   for(var i = 0; i < flies.length; i++){
     flyObjects[i].display(); flyObjects[i].buzz(); flyObjects[i].kill();
@@ -58,4 +57,5 @@ function draw() {
     textSize(50);
     text("Game Over", (width/2) - 150, (height/2));
   }
+  concrete[0].eat(width/2 - 3, height - 144, mouseX, mouseY);
 }
