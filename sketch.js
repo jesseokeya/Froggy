@@ -57,5 +57,11 @@ function draw() {
     textSize(50);
     text("Game Over", (width/2) - 150, (height/2));
   }
-  concrete[0].eat(width/2 - 3, height - 144, mouseX, mouseY);
+  if(mouseIsPressed){
+    concrete[0].eat(width/2 - 3, height - 144, mouseX, mouseY);
+  }
+  strokeWeight(8);
+  fill(200, 52, 0);
+  stroke(200, 52, 0, 200);
+  ellipse(width/2 - 3, height - 144, 15, 15)
 }
