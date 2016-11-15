@@ -1,6 +1,6 @@
 var flObjects = [ ]; flyObjects = [ ];
 var frog; var flies = [ ];
-var frogSize = 200; var flyNumber = 30;
+var frogSize = 160; var flyNumber = 30;
 
 function preload(){
   frog = loadImage("assets/frog.png");
@@ -15,7 +15,7 @@ function setup() {
   }
 
   for(var i = 0; i < flies.length; i++){
-    flyObjects.push(new fly(flies[i], 30, random(width), random(height)));
+    flyObjects.push(new fly(flies[i], 25, random(width), random(height)));
   }
 }
 
@@ -28,7 +28,7 @@ function draw() {
   background(145, 173, 144);
   for(var i = 0; i < flObjects.length; i++){flObjects[i].display(); flObjects[i].move();}
   imageMode(CENTER);
-  frog.resize(frogSize, frogSize - 30);
-  image(frog, width/2, height - 130);
+  frog.resize(frogSize, frogSize);
+  image(frog, width/2, height - 100);
   for(var i = 0; i < flies.length; i++){flyObjects[i].display(); flyObjects[i].buzzMenu();}
 }
