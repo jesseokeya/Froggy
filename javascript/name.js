@@ -24,4 +24,5 @@ function draw() {
   textSize(40);
   text('Your Name', 140, (height/2) - 40);
   text(name, (width/2) - 60, (height/2) + 40);
+  
 }

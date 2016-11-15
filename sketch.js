@@ -51,8 +51,11 @@ function draw() {
   //display all fly objects in array
   for(var i = 0; i < flies.length; i++){
     flyObjects[i].display(); flyObjects[i].buzz(); flyObjects[i].kill();
-    fill(0);
-    if(flyObjects[i].calcScore() === true){if(scoreCount < flyNumber){scoreCount = scoreCount + 1;}}
+    if(flyObjects[i].intersect() === true && flyObjects[i].getId() === false){scoreCount += 1; flyObjects[i].setId(true);}
   }
-
+  if(scoreCount === flyNumber){
+    fill(255, 89, 34, 150);
+    textSize(50);
+    text("Game Over", (width/2) - 150, (height/2));
+  }
 }

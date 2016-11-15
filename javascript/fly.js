@@ -5,6 +5,7 @@ function fly(img, size, x, y){
   this.size = size;
   this.img = img;
   this.count = 0;
+  this.track = false;
   this.countScore;
   this.col = color(145, 173, 150);
 
@@ -26,9 +27,24 @@ function fly(img, size, x, y){
  this.calcScore = function(){
   this.countScore = 0;
   var distance = dist(this.x, this.y, mouseX, mouseY);
-  if(distance < this.size + 23){return true;}
-  return false;
+  if(distance < this.size + 23){return this.countScore + 1;}
+  return this.countScore;
 }
+
+this.intersect = function(){
+ var distance = dist(this.x, this.y, mouseX, mouseY);
+ if(distance < this.size + 23){return true;}
+ return false;
+}
+
+this.setId = function(value){
+  this.track = false;
+  if(value){this.track = value;}
+  return this.track;
+}
+
+this.getId = function(){return this.track}
+
 
   this.buzz = function(){
     this.x = this.x + random(-this.speed, this.speed);
