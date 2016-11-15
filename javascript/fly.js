@@ -55,6 +55,7 @@ this.getId = function(){return this.track}
     if(this.y <= 110){this.y = this.y + 110;}
   }
 
+
   this.buzzMenu = function(){
     this.x = this.x + random(-this.speed, this.speed);
     this.y = this.y + random(-this.speed, this.speed);

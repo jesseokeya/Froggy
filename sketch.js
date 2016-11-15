@@ -58,10 +58,11 @@ function draw(){
     text("Game Over", (width/2) - 150, (height/2));
   }
   for(var i = 0; i < flies.length; i++){
-    if(flyObjects[i].intersect() === true && scoreCount < flyNumber){
+    if(flyObjects[i].getId() === true && flyObjects[i].intersect() === true && scoreCount < flyNumber){
       concrete[0].eat(width/2 - 3, height - 144, flyObjects[i].x, flyObjects[i].y);
+      flyObjects[i].x = 0;
+      flyObjects[i].y = 0;
     }
-    if(flyObjects[i].intersect() === false){  concrete[0].eat(width/2 - 3, height - 144, width/2 - 3, height - 144);}
   }
   strokeWeight(8);
   fill(200, 52, 0);
