@@ -34,7 +34,7 @@ function setup() {
 }
 
 //Game logic is in draw
-function draw() {
+function draw(){
   //set background
   background(145, 173, 150);
   //push score object into index 1 of concrete
@@ -58,9 +58,10 @@ function draw() {
     text("Game Over", (width/2) - 150, (height/2));
   }
   for(var i = 0; i < flies.length; i++){
-    if(flyObjects[i].intersect() && scoreCount < flyNumber){
+    if(flyObjects[i].intersect() === true && scoreCount < flyNumber){
       concrete[0].eat(width/2 - 3, height - 144, flyObjects[i].x, flyObjects[i].y);
     }
+    if(flyObjects[i].intersect() === false){  concrete[0].eat(width/2 - 3, height - 144, width/2 - 3, height - 144);}
   }
   strokeWeight(8);
   fill(200, 52, 0);
