@@ -1,15 +1,16 @@
 var flObjects = [ ];
-var name;
+var frog;
+var frogSize = 300;
 
 function setup() {
-  var myCanvas = createCanvas(500, 200);
+  var myCanvas = createCanvas(windowWidth, 400);
   myCanvas.parent('myContainer');
   for(var i = 0; i < 600; i++){
     flObjects.push(new floatingObjects(random(width),random(height)));
   }
-  name = "";
-  var inp = createInput('');
-  inp.input(myInputEvent);
+}
+function preload(){
+  frog = loadImage("assets/frog.png")
 }
 
 function myInputEvent() {
@@ -20,9 +21,7 @@ function myInputEvent() {
 function draw() {
   background(145, 173, 144);
   for(var i = 0; i < flObjects.length; i++){ flObjects[i].display(); flObjects[i].move();}
-  fill(0);
-  textSize(40);
-  text('Your Name', 140, (height/2) - 40);
-  text(name, (width/2) - 60, (height/2) + 40);
-  
+  imageMode(CENTER);
+  frog.resize(frogSize, frogSize - 30);
+  image(frog, width/2, height/2);
 }
