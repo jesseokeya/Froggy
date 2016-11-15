@@ -7,6 +7,7 @@ function fly(img, size, x, y){
   this.count = 0;
   this.track = false;
   this.countScore;
+  this.excecute = true;
   this.col = color(145, 173, 150);
 
   this.display = function(){
@@ -49,12 +50,22 @@ this.getId = function(){return this.track}
   this.buzz = function(){
     this.x = this.x + random(-this.speed, this.speed);
     this.y = this.y + random(-this.speed, this.speed);
-    if(this.x >= width - 40){this.x = this.x - 40;}
-    if(this.y >= height - 250){this.y = this.y - 250;}
-    if(this.x <= 40){this.x = this.x + 40;}
-    if(this.y <= 110){this.y = this.y + 110;}
+    if(this.excecute === false){this.y = this.y + this.speed; this.x = this.x }
+    if(this.excecute === true && this.x >= width - 40){this.x = this.x - 40;}
+    if(this.excecute === true && this.y >= height - 250){this.y = this.y - 250;}
+    if(this.excecute === true && this.x <= 40){this.x = this.x + 40;}
+    if(this.excecute === true && this.y <= 110){this.y = this.y + 110;}
   }
 
+  this.setExcecute = function(input){
+    this.excecute = false;
+    if(input){this.excecute = input;}
+    return this.excecute;
+  }
+
+  this.getExcecute = function(){
+    return this.excecute;
+  }
 
   this.buzzMenu = function(){
     this.x = this.x + random(-this.speed, this.speed);

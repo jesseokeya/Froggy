@@ -19,20 +19,32 @@ function windowResized(){
 function setup() {
   //create canvas
   canvas = createCanvas(windowWidth, windowHeight);
-  pixelDensity(1);
-  //push in random fly objects into game
-  for(var i = 0; i < flies.length; i++){
-    flyObjects.push(new fly(flies[i], 50, random(40, width - 40), random(110, height - 250)));
-  }
-  //push floating objects(fireflies) into the game
-  for(var i = 0; i < 600; i++){
-    flObjects.push(new floatingObjects(random(width),random(height)));
-  }
-  //push frog object into index 0 of concrete
-  concrete[0] = new frog(img, 200, width/2, height - 120);
-
+  nextLevel();
+}
+function nextLevel(level){
+    //push in random fly objects into game
+    for(var i = 0; i < flies.length; i++){
+      flyObjects.push(new fly(flies[i], 50, random(40, width - 40), random(110, height - 250)));
+    }
+    //push floating objects(fireflies) into the game
+    for(var i = 0; i < 600; i++){
+      flObjects.push(new floatingObjects(random(width),random(height)));
+    }
+    //push frog object into index 0 of concrete
+    concrete[0] = new frog(img, 200, width/2, height - 120);
 }
 
+function falling(frog, fly){
+  //stroke(200, 52, 0, 130);
+  noFill();
+  strokeWeight(2);
+  noStroke();
+  ellipse(width/2, height - 120, 200, 200);
+
+  var distance = dist(frog.x, frog.y, fly.x, fly.y);
+  if(distance < 250){return true;}
+  return false;
+}
 //Game logic is in draw
 function draw(){
   //set background
@@ -56,16 +68,24 @@ function draw(){
     fill(255, 89, 34, 150);
     textSize(50);
     text("Game Over", (width/2) - 150, (height/2));
+    level += 1;
+    setTimeout(nextLevel(level), 4000);
   }
   for(var i = 0; i < flies.length; i++){
     if(flyObjects[i].getId() === true && flyObjects[i].intersect() === true && scoreCount < flyNumber){
       concrete[0].eat(width/2 - 3, height - 144, flyObjects[i].x, flyObjects[i].y);
-      flyObjects[i].x = width;
-      flyObjects[i].y = height;
+      flyObjects[i].y = flyObjects[i].y + 60;
+      flyObjects[i].setExcecute(false);
     }
   }
   strokeWeight(8);
   fill(200, 52, 0);
   stroke(200, 52, 0, 200);
   ellipse(width/2 - 3, height - 144, 15, 15);
+for(var i = 0; i < flies.length; i++){
+  if(falling(concrete[0], flyObjects[i]) === true){
+    flyObjects[i].x = flyObjects[i].x + 50;
+    console.log("intersect");
+    }
+  }
 }
