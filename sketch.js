@@ -60,8 +60,8 @@ function draw(){
   for(var i = 0; i < flies.length; i++){
     if(flyObjects[i].getId() === true && flyObjects[i].intersect() === true && scoreCount < flyNumber){
       concrete[0].eat(width/2 - 3, height - 144, flyObjects[i].x, flyObjects[i].y);
-      flyObjects[i].x = 0;
-      flyObjects[i].y = 0;
+      flyObjects[i].x = width;
+      flyObjects[i].y = height;
     }
   }
   strokeWeight(8);
