@@ -1,6 +1,6 @@
 var flObjects = [ ]; flyObjects = [ ];
 var frog; var flies = [ ];
-var frogSize = 250; var flyNumber = 15;
+var frogSize = 200; var flyNumber = 30;
 
 function preload(){
   frog = loadImage("assets/frog.png");
@@ -15,7 +15,7 @@ function setup() {
   }
 
   for(var i = 0; i < flies.length; i++){
-    flyObjects.push(new fly(flies[i], 50, random(40, width - 40), random(110, height - 250)));
+    flyObjects.push(new fly(flies[i], 30, random(40, width - 40), random(110, height - 250)));
   }
 }
 
