@@ -57,11 +57,13 @@ function draw() {
     textSize(50);
     text("Game Over", (width/2) - 150, (height/2));
   }
-  if(mouseIsPressed){
-    concrete[0].eat(width/2 - 3, height - 144, mouseX, mouseY);
+  for(var i = 0; i < flies.length; i++){
+    if(flyObjects[i].intersect() && scoreCount < flyNumber){
+      concrete[0].eat(width/2 - 3, height - 144, flyObjects[i].x, flyObjects[i].y);
+    }
   }
   strokeWeight(8);
   fill(200, 52, 0);
   stroke(200, 52, 0, 200);
-  ellipse(width/2 - 3, height - 144, 15, 15)
+  ellipse(width/2 - 3, height - 144, 15, 15);
 }
