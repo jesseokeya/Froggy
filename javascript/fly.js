@@ -54,4 +54,13 @@ this.getId = function(){return this.track}
     if(this.x <= 40){this.x = this.x + 40;}
     if(this.y <= 110){this.y = this.y + 110;}
   }
+
+  this.buzzMenu = function(){
+    this.x = this.x + random(-this.speed, this.speed);
+    this.y = this.y + random(-this.speed, this.speed);
+    if(this.x >= width - 4){this.x = this.x - 4;}
+    if(this.y >= height - 25){this.y = this.y - 25;}
+    if(this.x <= 4){this.x = this.x + 4;}
+    if(this.y <= 11){this.y = this.y + 11;}
+  }
 }

@@ -8,14 +8,14 @@ function preload(){
 }
 
 function setup() {
-  var myCanvas = createCanvas(windowWidth, 625);
+  var myCanvas = createCanvas(windowWidth, 550);
   myCanvas.parent('myContainer');
   for(var i = 0; i < 600; i++){
     flObjects.push(new floatingObjects(random(width),random(height)));
   }
 
   for(var i = 0; i < flies.length; i++){
-    flyObjects.push(new fly(flies[i], 30, random(40, width - 40), random(110, height - 250)));
+    flyObjects.push(new fly(flies[i], 30, random(width), random(height)));
   }
 }
 
@@ -30,5 +30,5 @@ function draw() {
   imageMode(CENTER);
   frog.resize(frogSize, frogSize - 30);
   image(frog, width/2, height/2);
-  for(var i = 0; i < flies.length; i++){flyObjects[i].display(); flyObjects[i].buzz();}
+  for(var i = 0; i < flies.length; i++){flyObjects[i].display(); flyObjects[i].buzzMenu();}
 }
