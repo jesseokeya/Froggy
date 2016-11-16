@@ -3,8 +3,8 @@ var frog; var flies = [ ];
 var frogSize = 160; var flyNumber = 30;
 
 function preload(){
-  frog = loadImage("assets/frog.png");
-  for(var i = 0; i < flyNumber; i++){flies[i] = loadImage("assets/fly" + floor(random(0,3)) + ".png");}
+  frog = loadImage("../assets/frog.png");
+  for(var i = 0; i < flyNumber; i++){flies[i] = loadImage("../assets/fly" + floor(random(0,3)) + ".png");}
 }
 
 function setup() {
