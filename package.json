@@ -1,0 +1,29 @@
+{
+  "name": "froggy",
+  "version": "1.0.0",
+  "description": "Basic javascript game created with node js and express",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jesseokeya/Froggy.git"
+  },
+  "keywords": [
+    "node.js",
+    "expressJs",
+    "html",
+    "Css",
+    "php"
+  ],
+  "author": "Jesse Okeya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jesseokeya/Froggy/issues"
+  },
+  "homepage": "https://github.com/jesseokeya/Froggy#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
