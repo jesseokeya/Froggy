@@ -4,7 +4,7 @@
   "description": "Basic javascript game created with node js and express",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
