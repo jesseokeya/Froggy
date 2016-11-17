@@ -3,7 +3,6 @@ var flObjects = [ ]; var level;
 var canvas; var img; var concrete  = [ ];
 var flies = [ ]; var flyObjects = [ ];
 var scoreCount = 0; var flyNumber = 20;
-
 //function preload to load assets into the game
 function preload(){
   img = loadImage("../assets/frog.png");
@@ -20,6 +19,10 @@ function setup() {
   //create canvas
   canvas = createCanvas(windowWidth, windowHeight);
   //push in random fly objects into game
+  console.log("Froggy game is starting");
+
+  level = 1;
+
   for(var i = 0; i < flies.length; i++){
     flyObjects.push(new fly(flies[i], 50, random(40, width - 40), random(110, height - 250)));
   }
@@ -41,7 +44,21 @@ function setup() {
   //push frog object into index 0 of concrete
   concrete[0] = new frog(img, 200, width/2, height - 120);
 
-  level = 1;
+  loadJSON('all', gotData);
+  console.log("JSON file loaded sucessfully ");
+
+  if(scoreCount === flyNumber){
+
+  }
+}
+
+function gotData(data){
+  var keys = Object.keys(data);
+  console.log(keys);
+  for(var i = 0; i < keys.length; i++){
+    var word = keys[i];
+    var score = scoreCount;
+  }
 }
 
 function falling(frog, fly){
@@ -78,6 +95,11 @@ function draw(){
     fill(255, 89, 34, 150);
     textSize(50);
     text("Game Over", (width/2) - 150, (height/2));
+    console.log(level + ":" + scoreCount + " -> " + "success");
+    loadJSON('add/' + level + '/' + scoreCount, function(data){
+      console.log(data)
+    });
+    noLoop();
   }
   for(var i = 0; i < flies.length; i++){
     if(flyObjects[i].getId() === true && flyObjects[i].intersect() === true && scoreCount < flyNumber){
