@@ -5,8 +5,8 @@ var flies = [ ]; var flyObjects = [ ];
 var scoreCount = 0; var flyNumber = 20;
 //function preload to load assets into the game
 function preload(){
-  img = loadImage("../assets/frog.png");
-  for(var i = 0; i < flyNumber; i++){flies[i] = loadImage("../assets/fly" + floor(random(0,3)) + ".png");}
+  img = loadImage("assets/frog.png");
+  for(var i = 0; i < flyNumber; i++){flies[i] = loadImage("assets/fly" + floor(random(0,3)) + ".png");}
 }
 
 //resize widow to fit game into any screen
