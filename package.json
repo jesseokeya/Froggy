@@ -6,6 +6,9 @@
   "scripts": {
     "start": "nodemon server.js"
   },
+  "engines": {
+    "node": "6.7.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jesseokeya/Froggy.git"

@@ -1,0 +1,8 @@
+{
+  "name": "Node.js Getting Started",
+  "description": "This app does one little thing, and does it well.",
+  "keywords": ["Node.js", "HTML5", "Css", "expressJs"],
+  "repository": "https://github.com/jesseokeya/Froggy",
+  "logo": "https://small-sharp-tool.com/logo.svg",
+  "image": "heroku/nodejs",
+}
