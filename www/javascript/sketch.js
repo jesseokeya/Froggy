@@ -2,7 +2,8 @@
 var flObjects = [ ]; var level; var button
 var canvas; var img; var concrete  = [ ];
 var flies = [ ]; var flyObjects = [ ];
-var scoreCount = 0; var flyNumber = 20; var xposFrog;
+var scoreCount = 0; var flyNumber = 20;
+var xposFrog; var yposFrog;
 //function preload to load assets into the game
 function preload(){
   img = loadImage("assets/frog.png");
@@ -23,7 +24,8 @@ function setup() {
 
   level = 1;
 
-  xposFrog = width/2
+  xposFrog = width/2;
+  yposFrog = height - 120;
 
   for(var i = 0; i < flies.length; i++){
     flyObjects.push(new fly(flies[i], 50, random(40, width - 40), random(110, height - 250)));
@@ -58,6 +60,7 @@ function gotData(data){
 }
 function mouseDragged() {
   xposFrog = mouseX;
+  yposFrog = mouseY;
 }
 
 function falling(frog, fly, x, y){
@@ -80,7 +83,7 @@ function draw(){
   //push level object into index 1 of concrete
   concrete[2] = new score("Level", 35, level, width - 154, 60);
   //push frog object into index 0 of concrete
-  concrete[0] = new frog(img, 200, xposFrog, height - 120);
+  concrete[0] = new frog(img, 200, xposFrog, yposFrog);
   //display and move fireflies
   for(var i = 0; i < flObjects.length; i++){ flObjects[i].display(); flObjects[i].move();}
 

@@ -47,6 +47,13 @@ router.get('/add/:word/:score?', function(req, res){
   res.send(reply);
 });
 
+router.get('/settings', function(req, res){
+  res.send(" Game Settings")
+});
+
+router.get('/more', function(req, res){
+  res.send(" More Games Coming Soon <br/> Website: http://jesseokeya.herokuapp.com");
+});
 
 router.get('/home', function(req, res){
   res.send({message: "Welcome to froggy"});
