@@ -34,7 +34,7 @@ function setup() {
           console.log("Value:" + data[prop]);
       }
       level = data[prop];
-      numflies = 7 * level;
+      numflies = 3 * (level);
   });
 
   //push in random fly objects into game
