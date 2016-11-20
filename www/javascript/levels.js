@@ -2,7 +2,7 @@
 var flObjects = [ ]; var level; var button; var nextlevel;
 var canvas; var img; var concrete  = [ ];
 var flies = [ ]; var flyObjects = [ ];
-var scoreCount = 0; var flyNumber = 50; var numflies;
+var scoreCount = 0; var flyNumber = 500; var numflies;
 var xposFrog; var yposFrog; var canvasadjust = 45;
 //function preload to load assets into the game
 function preload(){
