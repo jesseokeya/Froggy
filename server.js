@@ -66,7 +66,7 @@ router.get('/all', function(req, res){
         console.log("Value:" + words[prop]);
         value = value + prop + ": " + words[prop] + "<br/>";
     }
-  res.send(value);
+  res.send(words);
 });
 
 router.get('/delete/:word', function(req, res){

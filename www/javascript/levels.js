@@ -1,8 +1,8 @@
 //Variables and arrays of game
-var flObjects = [ ]; var level; var button;
+var flObjects = [ ]; var level; var button; var nextlevel;
 var canvas; var img; var concrete  = [ ];
 var flies = [ ]; var flyObjects = [ ];
-var scoreCount = 0; var flyNumber = 5;
+var scoreCount = 0; var flyNumber = 50; var numflies;
 var xposFrog; var yposFrog; var canvasadjust = 45;
 //function preload to load assets into the game
 function preload(){
@@ -27,13 +27,15 @@ function setup() {
   xposFrog = width/2;
   yposFrog = height - 120;
 
-  for(var i = 0; i < flies.length; i++){
-    flyObjects.push(new fly(flies[i], 50, random(40, width - 40), random(110, height - 250)));
-  }
-  //push floating objects(fireflies) into the game
-  for(var i = 0; i < 600; i++){
-    flObjects.push(new floatingObjects(random(width),random(height)));
-  }
+  loadJSON('all',function(data){
+    console.log("JSON file loaded sucessfully ");
+    for (var prop in data) {
+          console.log("Key:" + prop);
+          console.log("Value:" + data[prop]);
+      }
+      level = data[prop];
+      numflies = 7 * level;
+  });
 
   //push in random fly objects into game
   for(var i = 0; i < flies.length; i++){
@@ -47,18 +49,9 @@ function setup() {
   concrete[0] = new frog(img, 200, width/2, height - 120);
   button = select('#button');
   button.position(width - 175,0);
-  loadJSON('all', gotData);
-  console.log("JSON file loaded sucessfully ");
+
 }
 
-function gotData(data){
-  var keys = Object.keys(data);
-  console.log(keys);
-  for(var i = 0; i < keys.length; i++){
-    var word = keys[i];
-    var score = scoreCount;
-  }
-}
 function mouseDragged() {
   //xposFrog = mouseX;
   //yposFrog = mouseY;
@@ -91,29 +84,30 @@ function draw(){
   //display objects
   for(var i = 0; i < concrete.length; i++){concrete[i].display();}
   //display all fly objects in array
-  for(var i = 0; i < flies.length; i++){
+  for(var i = 0; i < numflies; i++){
     flyObjects[i].display(); flyObjects[i].buzz(); flyObjects[i].kill();
     if(flyObjects[i].intersect() === true && flyObjects[i].getId() === false){
       scoreCount += 1;
       flyObjects[i].setId(true);}
   }
-  if(scoreCount === flyNumber){
+
+  if(scoreCount === numflies){
     fill(255, 89, 34, 150);
     textSize(50);
-    text("Game Over" + scoreCount, (width/2) - 150, (height/2));
+    text("Game Over ", (width/2) - 150, (height/2));
     fill(0, 0, 0, 150);
     textSize(30);
     text(" Click Next Level ⬆️", (width/2) - 150, (height/2) + 50);
     console.log(level + ":" + scoreCount + " -> " + "success");
-    var nextlevel = level + 1;
+    nextlevel = level + 1;
     loadJSON('add/' + level + '/' + nextlevel, function(data){
       console.log(data);
     });
     noLoop();
   }
-  for(var i = 0; i < flies.length; i++){
+  for(var i = 0; i < numflies; i++){
     if(flyObjects[i].getId() === true && flyObjects[i].intersect() === true && scoreCount < flyNumber){
-      concrete[0].eat(concrete[0].x, concrete[0].y - 24, flyObjects[i].x, flyObjects[i].y);
+      /*concrete[0].eat(concrete[0].x, concrete[0].y - 24, flyObjects[i].x, flyObjects[i].y);*/
       flyObjects[i].y = flyObjects[i].y + 60;
       flyObjects[i].setExcecute(false);
     }
@@ -122,7 +116,7 @@ function draw(){
   fill(200, 52, 0);
   stroke(200, 52, 0, 200);
   ellipse(concrete[0].x, concrete[0].y - 24, 15, 15);
-for(var i = 0; i < flies.length; i++){
+for(var i = 0; i < numflies; i++){
   if(falling(concrete[0], flyObjects[i], concrete[0].x, concrete[0].y) === true){
     flyObjects[i].x = flyObjects[i].x + 50;
     console.log("intersect");

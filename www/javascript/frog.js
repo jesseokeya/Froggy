@@ -4,6 +4,7 @@ function frog(img, size, x, y){
   this.size = size;
   this.img = img;
   this.point = false;
+  this.value = true;
 
   this.display = function(){
     imageMode(CENTER);
@@ -19,6 +20,8 @@ function frog(img, size, x, y){
 
   this.eat = function(x1, y1, x2, y2){
       stroke(200, 52, 0, 200);
+      if(this.value === false){
+      }
       strokeWeight(20);
       if(this.point === false){line(x1, y1, x2, y2);}
   }
