@@ -99,11 +99,14 @@ function draw(){
     fill(255, 89, 34, 150);
     textSize(50);
     text("Game Over", (width/2) - 150, (height/2));
+    fill(0, 0, 0, 150);
+    textSize(30);
+    text(" Click Next Level ⬆", (width/2) - 150, (height/2) + 50);
     console.log(level + ":" + scoreCount + " -> " + "success");
     loadJSON('add/' + level + '/' + scoreCount, function(data){
       console.log(data);
     });
-    //noLoop();
+    noLoop();
   }
   for(var i = 0; i < flies.length; i++){
     if(flyObjects[i].getId() === true && flyObjects[i].intersect() === true && scoreCount < flyNumber){
