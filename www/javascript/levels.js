@@ -107,7 +107,9 @@ function draw(){
   }
   for(var i = 0; i < numflies; i++){
     if(flyObjects[i].getId() === true && flyObjects[i].intersect() === true && scoreCount < flyNumber){
-      /*concrete[0].eat(concrete[0].x, concrete[0].y - 24, flyObjects[i].x, flyObjects[i].y);*/
+      if(scoreCount < numflies){
+        concrete[0].eat(concrete[0].x, concrete[0].y - 24, flyObjects[i].x, flyObjects[i].y);
+      }
       flyObjects[i].y = flyObjects[i].y + 60;
       flyObjects[i].setExcecute(false);
     }
