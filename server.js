@@ -60,11 +60,9 @@ router.get('/home', function(req, res){
 });
 
 router.get('/all', function(req, res){
-  var value = "";
   for (var prop in words) {
         console.log("Key:" + prop);
         console.log("Value:" + words[prop]);
-        value = value + prop + ": " + words[prop] + "<br/>";
     }
   res.send(words);
 });
@@ -77,6 +75,15 @@ router.get('/delete/:word', function(req, res){
       console.log(element + "was success fully removed");
     }
   }
+  res.redirect('/all');
+});
+
+router.get('/delete', function(req, res){
+  for (var prop in words) {
+        console.log("Key:" + prop);
+        console.log("Value:" + words[prop]);
+        delete words[prop];
+    }
   res.redirect('/all');
 });
 
