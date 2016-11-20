@@ -100,7 +100,7 @@ function draw(){
   if(scoreCount === flyNumber){
     fill(255, 89, 34, 150);
     textSize(50);
-    text("Game Over" + scoreCount, (width/2) - 150, (height/2));
+    text("Game Over ", (width/2) - 150, (height/2));
     fill(0, 0, 0, 150);
     textSize(30);
     text(" Click Next Level ⬆️", (width/2) - 150, (height/2) + 50);
