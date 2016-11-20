@@ -46,7 +46,7 @@ function setup() {
   //push frog object into index 0 of concrete
   concrete[0] = new frog(img, 200, width/2, height - 120);
   button = select('#button');
-  button.position(width - 140,0);
+  button.position(width - 175,0);
   loadJSON('all', gotData);
   console.log("JSON file loaded sucessfully ");
 }
