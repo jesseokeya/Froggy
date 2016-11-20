@@ -59,6 +59,27 @@ router.get('/home', function(req, res){
   res.send({message: "Welcome to froggy"});
 });
 
+router.get('/all', function(req, res){
+  var value = "";
+  for (var prop in words) {
+        console.log("Key:" + prop);
+        console.log("Value:" + words[prop]);
+        value = value + prop + ": " + words[prop] + "<br/>";
+    }
+  res.send(value);
+});
+
+router.get('/delete/:word', function(req, res){
+  var word = req.params.word;
+  for(var element in words){
+    if(element === word){
+      delete words[word];
+      console.log(element + "was success fully removed");
+    }
+  }
+  res.redirect('/all');
+});
+
 app.listen(port, function(){
   console.log("server listening on port " + port);
 });
