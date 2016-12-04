@@ -3,6 +3,7 @@ var port = process.env.PORT || 3000
 var app = express();
 var router = express.Router();
 var check;
+var path = require("path");
 
 var fs = require('fs');
 var data = fs.readFileSync('save.json');
@@ -11,6 +12,7 @@ console.log(words);
 
 app.use('/', express.static('www'));
 app.use('/', router);
+
 
 router.get('/add/:word/:score?', function(req, res){
   var data = req.params;
