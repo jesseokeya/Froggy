@@ -43,7 +43,7 @@ router.get('/add/:word/:score?', function(req, res){
   for(var i = 0; i < keys.length; i++){
     var word = keys[i];
     if(word === check){
-      res.send('www');
+      res.send(reply);
     }
   }
   res.send(reply);
