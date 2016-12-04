@@ -106,7 +106,7 @@ function draw(){
       flyObjects[i].setId(true);}
   }
   if(scoreCount === flyNumber){
-    flySound.stop();
+    //flySound.stop();
     fill(255, 89, 34, 150);
     textSize(50);
     text("Game Over ", (width/2) - 150, (height/2));
