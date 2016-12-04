@@ -7,8 +7,8 @@ var xposFrog; var yposFrog; var canvasadjust = 45;
 var frogSound; var flySound;
 //function preload to load assets into the game
 function preload(){
-  frogSound = loadSound('assets/frog.m4a');
-  flySound =  loadSound('assets/fly.m4a');
+  // frogSound = loadSound('assets/frog.m4a');
+  // flySound =  loadSound('assets/fly.m4a');
   console.log("sounds loaded");
   img = loadImage("assets/frog.png");
   for(var i = 0; i < flyNumber; i++){flies[i] = loadImage("assets/fly" + floor(random(0,3)) + ".png");}
@@ -26,12 +26,12 @@ function setup() {
   //push in random fly objects into game
   console.log("Froggy game is starting");
   level = 1;
-  frogSound.play();
-  flySound.play();
-  flySound.setVolume(0.8);
-  frogSound.setVolume(0.2);
-  flySound.loop();
-  frogSound.loop();
+  // frogSound.play();
+  // flySound.play();
+  // flySound.setVolume(0.8);
+  // frogSound.setVolume(0.2);
+  // flySound.loop();
+  // frogSound.loop();
   xposFrog = width/2;
   yposFrog = height - 120;
 
